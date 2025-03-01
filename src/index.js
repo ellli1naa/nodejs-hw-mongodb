@@ -3,7 +3,7 @@ import { setupServer } from "./server.js";
 
 export const boostrap = async () => {
   await initMongoConnection();
-  setUpServer();
+  setupServer();
 };
 
 boostrap();

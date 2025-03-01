@@ -25,7 +25,13 @@ export function setupServer() {
     });
   });
 
-  app.get("/contacts", async (req, res) => {
+  app.get('/', (req, res) => {
+    res.json({
+      message: 'Hello!',
+    });
+  });
+
+  app.get('/contacts', async (req, res) => {
     const result = await getAllContacts();
     res.status(200).json({
       status: 200,
