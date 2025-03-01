@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-export function initMongoConnection = () => {
+export function initMongoConnection() {
   mongoose
     .connect(
       `mongodb+srv://${process.env.MONGODB_USER}:${process.env.MONGODB_PASSWORD}@${process.env.MONGODB_URL}/${process.env.MONGODB_DB}`
@@ -14,4 +14,4 @@ export function initMongoConnection = () => {
     .catch((err) => {
       console.error("MongoDB connection error:", err);
     });
-};
+}
