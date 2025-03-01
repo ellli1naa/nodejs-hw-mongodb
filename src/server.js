@@ -1,6 +1,5 @@
 import express from "express";
 import cors from "cors";
-import pino from "pino";
 import pinoHttp from "pino-http";
 import { getAllContacts, getContactById } from "./services/contacts.js";
 import { getEnvVar } from "./utils/getEnvVar.js";
@@ -31,7 +30,7 @@ export function setupServer() {
     res.status(200).json({
       status: 200,
       message: 'Successfully found contacts',
-      data: contacts,
+      data: result,
     });
   });
 
