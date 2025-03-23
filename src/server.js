@@ -1,7 +1,8 @@
 import express from 'express';
 import cors from 'cors';
 import pinoHttp from 'pino-http';
-import contactsRouter from './routers/contacts.js';
+import cookieParser from 'cookie-parser';
+import router from './routers/index.js';
 import { getEnvVar } from './utils/getEnvVar.js';
 import { errorHandler } from './middlewares/errorHandler.js';
 import { notFoundHandler } from './middlewares/notFoundHandler.js';
@@ -13,6 +14,7 @@ export function setupServer() {
 
   app.use(cors());
   app.use(express.json());
+  app.use(cookieParser());
   app.use(
     pinoHttp({
       transport: {
@@ -27,7 +29,7 @@ export function setupServer() {
     });
   });
 
-  app.use(contactsRouter);
+  app.use(router);
 
   app.get('*', notFoundHandler);
 
