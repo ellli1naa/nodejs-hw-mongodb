@@ -16,9 +16,4 @@ content:
           example: NotFoundError
         data:
           type: object
-          required:
-            - message
-          properties:
-            message:
-              type: string
-              example: 'The requested URL was not found on this server'
+          example: 'Contact not found'

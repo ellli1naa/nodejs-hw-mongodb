@@ -7,7 +7,7 @@ security:
   - bearerAuth: []
 parameters:
   - in: path
-    name: contactId
+    name: id
     required: true
     schema:
       type: string
@@ -19,21 +19,27 @@ requestBody:
         type: object
         properties:
           name:
+            description: "Contact's name"
             type: string
             example: 'John Doe'
           phoneNumber:
+            description: "Contact's number"
             type: number
             example: 987654321
           email:
+            description: "Contact's email"
             type: string
             example: johndoe@gmail.com
           isfavourite:
+            description: 'Whether is contact favourite'
             type: boolean
             example: true
           contactType:
+            description: "Contacts's type"
             type: string
             enum: ['work', 'home', 'personal']
           photo:
+            description: "Link to contact's photo"
             type: string
             format: binary
 responses:
@@ -56,6 +62,6 @@ responses:
               example: Successfully updated contact with id 65ca67e7ae7f10c88b598384!
             data:
               type: object
-              $ref: '../../components/schemas/contact.yaml'
+              $ref: '../../../components/schemas/contact.yaml'
   '404':
-    $ref: '../../components/responses/404.yaml'
+    $ref: '../../../components/responses/404.yaml'
