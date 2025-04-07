@@ -6,9 +6,9 @@ import { swaggerDocs } from '../middlewares/swaggerDocs.js';
 
 const router = express.Router();
 
-router.use('/contacts', contactsRouter);
-router.use('/auth', authRouter);
 router.use('/uploads', express.static(UPLOAD_DIR));
 router.use('/api-docs', await swaggerDocs());
+router.use('/contacts', contactsRouter);
+router.use('/auth', authRouter);
 
 export default router;
