@@ -11,7 +11,6 @@ parameters:
     required: true
     schema:
       type: string
-      example: '65ca67e7ae7f10c88b598384'
 requestBody:
   content:
     multipart/form-data:
@@ -25,7 +24,7 @@ requestBody:
           phoneNumber:
             description: "Contact's number"
             type: number
-            example: 987654321
+            example: +380987654321
           email:
             description: "Contact's email"
             type: string
