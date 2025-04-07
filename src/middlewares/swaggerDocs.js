@@ -4,7 +4,7 @@ import fs from 'node:fs';
 
 import { SWAGGER_PATH } from '../constants/index.js';
 
-export const swaggerConfig = async () => {
+export const swaggerDocs = async () => {
   try {
     const swaggerJSON = JSON.parse(
       (await fs.readFile(SWAGGER_PATH)).toString(),
