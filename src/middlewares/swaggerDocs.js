@@ -4,16 +4,12 @@ import fs from 'node:fs';
 
 import { SWAGGER_PATH } from '../constants/index.js';
 
-export const swaggerDocs = async () => {
+export const swaggerDocs = () => {
   try {
-    const swaggerJSON = JSON.parse(
-      (await fs.readFile(SWAGGER_PATH)).toString(),
-    );
-
-    return [...swaggerUI.serve, swaggerUI.setup(swaggerJSON)];
-  } catch {
-    return (_req, _res, next) => {
+    const swaggerDoc = JSON.parse(fs.readFileSync(SWAGGER_PATH).toString());
+    return [...swaggerUI.serve, swaggerUI.setup(swaggerDoc)];
+  } catch (err) {
+    return (req, res, next) =>
       next(createHttpError(500, "Can't load swagger docs"));
-    };
   }
 };
