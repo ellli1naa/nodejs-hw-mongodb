@@ -17,6 +17,12 @@ parameters:
       type: integer
       example: 10
   - in: query
+    name: sortBy
+    schema:
+      type: string
+      example: _id
+    description: "All student's fields can be mentioned. Default value - _id"
+  - in: query
     name: sortOrder
     schema:
       type: string
@@ -73,5 +79,5 @@ responses:
                 hasPreviousPage:
                   type: boolean
                   example: true
-  '404':
-    $ref: '../../components/responses/404.yaml'
+  '401':
+    $ref: '../../components/responses/401.yaml'
