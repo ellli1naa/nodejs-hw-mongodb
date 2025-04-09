@@ -27,7 +27,7 @@ requestBody:
             description: "Contact's email"
             type: string
             example: johndoe@gmail.com
-          isfavourite:
+          isFavourite:
             description: "Contact's favourite."
             type: boolean
             example: false
@@ -61,5 +61,7 @@ responses:
             data:
               type: object
               $ref: '../../components/schemas/contact.yaml'
+  '400':
+    $ref: '../../components/responses/400.yaml'
   '401':
     $ref: '../../components/responses/401.yaml'

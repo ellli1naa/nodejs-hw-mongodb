@@ -106,7 +106,7 @@
                     "type": "string",
                     "example": "johndoe@gmail.com"
                   },
-                  "isfavourite": {
+                  "isFavourite": {
                     "description": "Whether is contact favourite",
                     "type": "boolean",
                     "example": true
@@ -159,6 +159,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
           },
           "401": {
             "$ref": "#/components/responses/401"
@@ -222,6 +225,9 @@
           },
           "401": {
             "$ref": "#/components/responses/401"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
           }
         }
       }
@@ -391,7 +397,7 @@
                     "type": "string",
                     "example": "johndoe@gmail.com"
                   },
-                  "isfavourite": {
+                  "isFavourite": {
                     "description": "Contact's favourite.",
                     "type": "boolean",
                     "example": false
@@ -446,6 +452,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
           "401": {
             "$ref": "#/components/responses/401"
           }
@@ -492,7 +501,7 @@
             "type": "string",
             "example": "johndoe@gmail.com"
           },
-          "isfavourite": {
+          "isFavourite": {
             "description": "Contact's favourite.",
             "type": "boolean",
             "example": false
@@ -520,6 +529,55 @@
       }
     },
     "responses": {
+      "400": {
+        "description": "Bad request",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "required": [
+                "status",
+                "message",
+                "data"
+              ],
+              "properties": {
+                "status": {
+                  "type": "integer",
+                  "example": 400
+                },
+                "message": {
+                  "type": "string",
+                  "example": "\\\"email\\\" must be a valid email"
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "message": {
+                        "type": "string",
+                        "example": "\\\"email\\\" must be a valid email"
+                      },
+                      "path": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "example": "email"
+                        }
+                      },
+                      "type": {
+                        "type": "string",
+                        "example": "string.email"
+                      },
+                      "context": {}
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
       "401": {
         "description": "Unauthorized error",
         "content": {
